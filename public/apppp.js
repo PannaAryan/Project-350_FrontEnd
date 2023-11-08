@@ -29,7 +29,7 @@ const patientSignIn = (event) => {
   const logInData = { Email, Password };
 
 
-  fetch("http://localhost:8000/api/v1/expert/login", {
+  fetch("http://localhost:8000/api/v1/auth/login", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -39,7 +39,9 @@ const patientSignIn = (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data?.success) {
-        window.location.href = 'http://127.0.0.1:5501/frontend/public/html/home.html';
+        window.location.href = 'http://127.0.0.1:5500/public/html/patient_portal.html';
+        
+        // console.log(data);
       }
     })
     .catch((error) => {
@@ -53,13 +55,13 @@ const patientSignUp = (event) => {
   event.preventDefault();
   const FirstName = document.getElementById("fn").value;
   const LastName = document.getElementById("ln").value;
-  const Username = document.getElementById("un").value;
   const Email = document.getElementById("patientLogInmail").value;
   const PhoneNumber = document.getElementById("pnumber").value;
-  const NID = document.getElementById("nidNo").value;
+  const DateOfBirth = document.getElementById("dob").value;
   const Password = document.getElementById("patientass").value;
 
-  const SignUpData = { FirstName, LastName, Username, Email, PhoneNumber, NID, Password };
+  const SignUpData = { FirstName, LastName, Email, PhoneNumber, DateOfBirth, Password };
+  // console.log(SignUpData);
 
   fetch("http://localhost:8000/api/v1/auth/signup", {
     method: "POST",
@@ -71,7 +73,8 @@ const patientSignUp = (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data?.success) {
-        window.location.href = 'http://127.0.0.1:5501/frontend/public/html/patient_portal.html';
+        window.location.href = 'http://127.0.0.1:5500/public/html/patient_portal.html';
+        //console.log("success");
       }
     })
     .catch((error) => {
@@ -82,10 +85,11 @@ const patientSignUp = (event) => {
 
 const doctorSignIn = (event) => {
   event.preventDefault();
-  const Email = document.getElementById("DoctorLogInEmail");
-  const Password = document.getElementById("DoctorLogInPass");
+  const Email = document.getElementById("DoctorLogInEmail").value;
+  const Password = document.getElementById("DoctorLogInPass").value;
 
   const loginData = { Email, Password };
+  console.log(loginData);
 
   fetch("http://localhost:8000/api/v1/expert/login", {
     method: "POST",
@@ -97,7 +101,8 @@ const doctorSignIn = (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data?.success) {
-        window.location.href = 'http://127.0.0.1:5501/frontend/public/html/home.html';
+        // console.log(payload);
+        window.location.href = 'http://127.0.0.1:5500/public/html/doctor_portal.html';
       }
     })
     .catch((error) => {
@@ -111,15 +116,14 @@ const doctorSignIn = (event) => {
 
 const doctorSignUp = (event) => {
   event.preventDefault();
-  const Username = document.getElementById("unn").value;
-  const BMDC_Registration_Number = document.getElementById("bmdcRegNo").value;
   const FullName = document.getElementById("fn").value;
+  const BMDC_reg = document.getElementById("bmdcRegNo").value;
   const Specialization = document.getElementById("specs").value;
-  const Email = document.getElementById("DoctorLogInEmail").value;
+  const Email = document.getElementById("DoctorEmail").value;
   const PhoneNumber = document.getElementById("phoneNo").value;
-  const Password = document.getElementById("DoctorLogInPass").value;
+  const Password = document.getElementById("DoctorPass").value;
 
-  const SignUpData = { Username, BMDC_Registration_Number, FullName, Specialization, Email, PhoneNumber, Password };
+  const SignUpData = {FullName, BMDC_reg, Specialization, Email, PhoneNumber, Password };
 
   fetch("http://localhost:8000/api/v1/expert/signup", {
     method: "POST",
@@ -131,12 +135,12 @@ const doctorSignUp = (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data?.success) {
-        window.location.href = 'http://127.0.0.1:5501/frontend/public/html/doctor_portal.html';
-      }
+        window.location.href = 'http://127.0.0.1:5500/public/html/doctor_portal.html';      }
     })
     .catch((error) => {
       console.error("Error:", error);
       alert("An error occurred during signup. Please try again.");
     });
+  // console.log(SignUpData);
 }
 
