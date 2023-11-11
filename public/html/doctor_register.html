@@ -32,7 +32,8 @@
              <input type="submit" class="btn" value="Sign in" />
    
           </form>
-          <form action="#" class="sign-up-form" id="doctor-signup-form" onsubmit="doctorSignUp(event)">
+          <!-- onsubmit="doctorSignUp(event) -->
+          <form action="#" class="sign-up-form" id="doctor-signup-form" >
             <h2 class="title">Sign up</h2>
             
             <div class="input-field">
@@ -57,14 +58,14 @@
 
             <div class="input-field">
               <i class="fas fa-phone"></i>
-              <input type="text" placeholder="PhoneNumber" name="phoneNo" id="phoneNo"/>
+              <input type="text" placeholder="PhoneNumber" name="phoneNo" id="phoneNo" pattern="[0]{1}[1]{1}[0-9]{9}" required/>
           </div>
           
             <div class="input-field">
               <i class="fas fa-lock"></i>
               <input type="password" placeholder="Password" name="password" id="DoctorPass"/>
             </div>
-            <input type="submit" class="btn" value="Sign up" />
+            <input type="submit" class="btn" value="Sign up" name="signn" id="sigup"/>
            
           </form>
         </div>

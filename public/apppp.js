@@ -5,6 +5,8 @@ const signInForm = document.getElementById("patient-login-form");
 const signUpForm = document.getElementById("patient-signup-form");
 const SignInFormDoc = document.getElementById("doctor-login-form");
 const signUpFormDoc = document.getElementById("doctor-signup-form");
+const emailInput = document.getElementById('DoctorEmail');
+const phoneInput = document.getElementById('phoneNo');
 
 
 sign_up_btn.addEventListener("click", () => {
@@ -39,7 +41,7 @@ const patientSignIn = (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data?.success) {
-        window.location.href = 'http://127.0.0.1:5500/public/html/patient_portal.html';
+        // window.location.href = 'http://127.0.0.1:5500/public/html/patient_portal.html';
         
         // console.log(data);
       }
@@ -144,3 +146,46 @@ const doctorSignUp = (event) => {
   // console.log(SignUpData);
 }
 
+
+function validateEmail(email) {
+  const regex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z]{2,}$/;
+  return regex.test(email);
+}
+
+
+document.getElementById('sigup').addEventListener('click', function() {
+  
+  
+  var email = document.getElementById('DoctorEmail').value;
+  if (validateEmail(email)) {
+      console.log("Email is valid.");
+      doctorSignUp(event);
+      // Your signup code goes here
+  } else {
+      console.log("Email is invalid.");
+      alert("Your email is invalid");
+  }
+});
+
+
+
+
+function IsvalidEmail(emaill) {
+  const regex = /^[a-zA-Z0-9.+_-]+@[a-zA-Z]{2,}$/;
+  return regex.test(emaill);
+}
+
+
+document.getElementById('signnup').addEventListener('click', function() {
+  
+  
+  var emaill = document.getElementById('patientLogInmail').value;
+  if (IsvalidEmail(emaill)) {
+      console.log("Email is valid.");
+      patientSignUp(event);
+      // Your signup code goes here
+  } else {
+      console.log("Email is invalid.");
+      alert("Your email is invalid");
+  }
+});

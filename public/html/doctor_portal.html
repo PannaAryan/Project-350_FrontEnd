@@ -10,34 +10,51 @@
 </head>
 
 <body>
-    <ol style="--length: 4" role="list">
-        <!-- Today's Appointments -->
 
-        <li style="--i: 1">
-            <h1 class="text-white">Today's Appointments</h1>
-            <ul id="todays-appointments">
-                <li class="text-white ">Appointment with John Doe at 10:00 AM</li>
-                <li class="text-white">Appointment with Jane Doe at 11:00 AM</li>
-                <!-- More appointments can be added here -->
-            </ul>
-        </li>
-
-        <section id="logout">
-            <button id="logout-button">Logout</button>
-        </section>
-
-
-
-        <!-- Other Sections... -->
-        <!-- Add other sections as per your requirements -->
-    </ol>
+    <div style="margin-top: 200px; text-align: center;"> 
+        <h1>Dr. Ahmed Rahman</h1> 
+        <h2>Dental Medicine</h2> 
+        <!-- <h3>Specialized Skills:</h3>  -->
+        <ul> 
+            <li>Advanced Composite Bonding</li> 
+            <li>Implant Dentistry</li> 
+            <li>Cosmetic Dentistry</li> 
+            <li>Orthodontics</li> 
+            <li>Pediatric Dentistry</li> </ul>
+        </div>
+    
+        <div style="margin-top: 200px; text-align: center;">
+            <ol style="--length: 4" role="list">
+                <!-- Today's Appointments -->
+        
+                <li style="--i: 1">
+                    <!-- <h1>Dr. Ahmed Rahman</h1>
+                    <h2>Dental Medicine</h2> -->
+                    <h3 class="text-white">Today's Appointments</h3>
+                    <ul id="todays-appointments">
+                        <li class="text-white ">Appointment with John Doe at 10:00 AM</li>
+                        <li class="text-white">Appointment with Jane Doe at 11:00 AM</li>
+                        <!-- More appointments can be added here -->
+                    </ul>
+                </li>
+        
+                <section id="logout">
+                    <button id="logout-button">Logout</button>
+                </section>
+        
+        
+        
+                <!-- Other Sections... -->
+                <!-- Add other sections as per your requirements -->
+            </ol>
+        </div>
 
     <script>
 
         document.addEventListener('DOMContentLoaded', function () {
             const logoutButton = document.getElementById('logout-button');
             logoutButton.addEventListener('click', function () {
-                window.location.href = 'http://127.0.0.1:5501/frontend/public/html/home.html';
+                window.location.href = 'http://127.0.0.1:5500/public/html/home.html';
             });
         });
         document.addEventListener('DOMContentLoaded', function () {

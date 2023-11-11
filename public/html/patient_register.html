@@ -28,7 +28,7 @@
                 </form>
 
                 <!-- Sign Up Form -->
-                <form class="sign-up-form" id="patient-signup-form" onsubmit="patientSignUp(event)">
+                <form class="sign-up-form" id="patient-signup-form">
                     <h2 class="title">Sign up</h2>
                     <div class="input-field">
                         <i class="fas fa-user"></i>
@@ -40,22 +40,22 @@
                     </div>
                     <div class="input-field">
                         <i class="fas fa-envelope"></i>
-                        <input type="email" placeholder="Email" name="email" id="patientLogInmail"/>
+                        <input type="email" placeholder="Email" name="email" id="patientLogInmail" />
                     </div>
                     <div class="input-field">
                         <i class="fas fa-phone"></i>
-                        <input type="text" placeholder="PhoneNumber" name="phoneNumer" id="pnumber"/>
+                        <input type="text" placeholder="PhoneNumber" name="phoneNumer" id="pnumber" pattern="[0]{1}[1]{1}[0-9]{9}" required/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
-                        <input type="date" placeholder="DOB" name="dob" id="dob"/>
+                        <input type="date" placeholder="DOB" name="dob" id="dob"  min="1920-01-01" max="2023-11-01"/>
                     </div>
                     <div class="input-field">
                         <i class="fas fa-lock"></i>
                         <input type="password" placeholder="Password" name="pass" id="patientass"/>
                     </div>
                     <!-- <input type="button" class="btn" value="Sign up" onclick="signup()" /> -->
-                    <input type="submit" class="btn" value="Sign Up" />
+                    <input type="submit" class="btn" value="Sign Up" id="signnup"/>
                 </form>
             </div>
         </div>
