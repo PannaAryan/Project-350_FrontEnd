@@ -29,6 +29,7 @@ const patientSignIn = (event) => {
   const Password = document.getElementById("patientPass").value;
 
   const logInData = { Email, Password };
+  console.log(logInData);
 
 
   fetch("http://localhost:8000/api/v1/auth/login", {
@@ -41,7 +42,7 @@ const patientSignIn = (event) => {
     .then((response) => response.json())
     .then((data) => {
       if (data?.success) {
-        // window.location.href = 'http://127.0.0.1:5500/public/html/patient_portal.html';
+        window.location.href = 'http://127.0.0.1:5500/public/html/patient_portal.html';
         
         // console.log(data);
       }
