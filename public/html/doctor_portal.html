@@ -11,48 +11,109 @@
 
 <body>
 
-    <div style="margin-top: 200px; text-align: center;"> 
-        <h1>Dr. Ahmed Rahman</h1> 
-        <h2>Dental Medicine</h2> 
-        <!-- <h3>Specialized Skills:</h3> -->
-        <ul> 
-            <li><h2>Available Slots</h2></li> 
-            <!-- <li>Time:</li> -->
-            </ul>
-        <div style="margin-top: 20px; text-align: center; width: 300px; margin:auto;">
-            <input type="time" id="timeInput" placeholder="HH:MM AM/PM">
-            <button onclick="addTime()">Add Time</button>
+    <div style="margin-top: 100px; text-align: center;">
+        <h1>Dr. Dhruba Siddique</h1>
+        <h2>Dental Medicine</h2>
+
+        <div style="text-align: center; width: 200px; margin:auto; margin-top: 50px; ">
+            <h2>Provide slots</h2>
+            <input type="time" id="time-input" placeholder="HH:MM AM/PM">
+            <button onclick="addTimeToList()">Add Time</button>
+            <ul id="time-list"></ul>
+
         </div>
     </div>
-    
-    
-        <div style="margin-top: 200px; text-align: center;">
-            <ol style="--length: 4" role="list">
-                <!-- Today's Appointments -->
-        
-                <li style="--i: 1">
-                    <!-- <h1>Dr. Ahmed Rahman</h1>
-                    <h2>Dental Medicine</h2> -->
-                    <h3 class="text-white">Today's Appointments</h3>
-                    <ul id="todays-appointments">
-                        <li class="text-white ">Appointment with John Doe at 10:00 AM</li>
-                        <li class="text-white">Appointment with Jane Doe at 11:00 AM</li>
-                        <!-- More appointments can be added here -->
-                    </ul>
-                </li>
-        
-                <section id="logout">
-                    <button id="logout-button">Logout</button>
-                </section>
-        
-        
-        
-                <!-- Other Sections... -->
-                <!-- Add other sections as per your requirements -->
-            </ol>
-        </div>
+
+
+
+
+
+    <table>
+        <style>
+            body {
+                font-family: Arial, sans-serif;
+            }
+
+            table {
+                border-collapse: collapse;
+                width: 30%;
+                margin: 0 auto;
+                margin-top: 50px;
+                text-align: center;
+            }
+
+            th,
+            td {
+                border: 1px solid #ddd;
+                padding: 8px;
+                text-align: left;
+            }
+
+            th {
+                background-color: #4c87af;
+                color: white;
+            }
+
+            tr:nth-child(even) {
+                background-color: #f2f2f2;
+            }
+        </style>
+        <caption>
+            <h1>Today's Appointment</h1>
+        </caption>
+        <thead>
+            <tr>
+                <th>TimeSlot</th>
+                <th>PatientName</th>
+                <th>Status</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td>10:00</td>
+                <td>John Doe</td>
+                <td>Confirmed</td>
+            </tr>
+            <tr>
+                <td>11:00</td>
+                <td>Jane Doe</td>
+                <td>Waiting</td>
+            </tr>
+        </tbody>
+    </table>
+
+
+
+    <div style="margin-top: 200px; text-align: center;">
+        <ol style="--length: 4" role="list">
+            <!-- Today's Appointments -->
+
+
+
+            <section id="logout">
+                <button id="logout-button">Logout</button>
+            </section>
+
+
+
+            <!-- Other Sections... -->
+            <!-- Add other sections as per your requirements -->
+        </ol>
+    </div>
+
+
 
     <script>
+
+        function addTimeToList() {
+            let timeInput = document.getElementById('time-input');
+            let timeList = document.getElementById('time-list');
+
+            let listItem = document.createElement('li');
+            listItem.textContent = timeInput.value;
+            timeList.appendChild(listItem);
+        }
+
 
         document.addEventListener('DOMContentLoaded', function () {
             const logoutButton = document.getElementById('logout-button');
